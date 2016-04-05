@@ -258,10 +258,10 @@ Devise.setup do |config|
   #     mount MyEngine, at: '/my_engine'
   #
   # The router that invoked `devise_for`, in the example above, would be:
-   config.router_name = :lama
+  config.router_name = :lama
   #
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
-   #config.parent_controller = 'MyEngine::ApplicationController'
+  # config.parent_controller = 'MyEngine::ApplicationController'
 end
