@@ -3,5 +3,5 @@
 Internet shop-core gem 'Lama'
 
 = Technology stack
-* Ruby        2.2.1
+* Ruby        2.3.0
 * Devise      3.5.6
