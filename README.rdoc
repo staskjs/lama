@@ -1,3 +1,7 @@
-= Lama
+== README
+= About
+Internet shop-core gem 'Lama'
 
-This project rocks and uses MIT-LICENSE.
+= Technology stack
+* Ruby        2.2.1
+* Devise      3.5.6
