@@ -1,6 +1,6 @@
-class CreateShopProducts < ActiveRecord::Migration
+class CreateLamaSections < ActiveRecord::Migration
   def change
-    create_table :shop_products do |t|
+    create_table :lama_sections do |t|
       t.string :name
       t.string :code
       t.integer :sort
@@ -22,10 +22,10 @@ class CreateShopProducts < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :shop_products, :preview_picture_file_id
-    add_index :shop_products, :detail_picture_file_id
-    add_index :shop_products, :created_user_id
-    add_index :shop_products, :updated_user_id
-    add_index :shop_products, :section_id
+    add_index :lama_sections, :preview_picture_file_id
+    add_index :lama_sections, :detail_picture_file_id
+    add_index :lama_sections, :section_id
+    add_index :lama_sections, :created_user_id
+    add_index :lama_sections, :updated_user_id
   end
 end

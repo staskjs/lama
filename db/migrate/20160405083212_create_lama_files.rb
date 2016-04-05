@@ -1,6 +1,6 @@
-class CreateShopFiles < ActiveRecord::Migration
+class CreateLamaFiles < ActiveRecord::Migration
   def change
-    create_table :shop_files do |t|
+    create_table :lama_files do |t|
       t.string :name
       t.string :path
       t.text :description
@@ -10,5 +10,8 @@ class CreateShopFiles < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_index :lama_files, :created_user_id
+    add_index :lama_files, :updated_user_id
   end
 end

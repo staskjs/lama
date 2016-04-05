@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  mount Shop::Engine => '/shop'
+  mount Lama::Engine => '/lama'
 end
