@@ -1,1 +1,44 @@
-inherit_from: '../.rubocop.yml'
+# Disable global vars
+Style/SpecialGlobalVars:
+  Enabled: false
+
+# Disable class length restriction
+Metrics/ClassLength:
+  Enabled: false
+
+# Disable module length restriction
+Metrics/ModuleLength:
+  Enabled: false
+
+# Disable method length restriction
+Metrics/MethodLength:
+  Enabled: false
+
+# Disable checking of ABC metrics (assignment, branch, condition)
+Metrics/AbcSize:
+  Enabled: false
+
+# Disable method perceived complexity (how it is hard to read a method)
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+# Disable cyclomatic complexity which is a number of paths through a method
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+# Block nesting is 5
+Metrics/BlockNesting:
+  Max: 5
+
+# Set max line length to 120
+Metrics/LineLength:
+  Max: 120
+
+AllCops:
+  DisplayCopNames: true
+  Exclude:
+    - db/**/*
+    - bin/**
+
+Rails:
+  Enabled: true
