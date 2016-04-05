@@ -1,2 +1,1 @@
-Metrics/LineLength:
-  Max: 120
+inherit_from: '../.rubocop.yml'
