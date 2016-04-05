@@ -1,4 +1,4 @@
 # desc "Explaining what the task does"
-# task :shop do
+# task :lama do
 #   # Task goes here
 # end

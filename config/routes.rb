@@ -1,2 +1,2 @@
-Shop::Engine.routes.draw do
+Lama::Engine.routes.draw do
 end

@@ -1,4 +1,4 @@
-module Shop
+module Lama
   #
   module ApplicationHelper
   end

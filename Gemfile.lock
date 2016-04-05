@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    shop (0.0.1)
+    lama (0.0.1)
       rails (~> 4.2.6)
 
 GEM
@@ -63,7 +63,7 @@ GEM
     minitest (5.8.4)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
-    parser (2.3.0.6)
+    parser (2.3.0.7)
       ast (~> 2.2)
     powerpack (0.1.1)
     rack (1.6.4)
@@ -135,16 +135,16 @@ GEM
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    unicode-display_width (1.0.2)
+    unicode-display_width (1.0.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  lama!
   rspec (~> 3.0)
   rspec-rails (= 3.4.2)
   rubocop (= 0.38.0)
-  shop!
   sqlite3
 
 BUNDLED WITH

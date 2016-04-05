@@ -1,4 +1,4 @@
-module Shop
+module Lama
   #
   class Engine < ::Rails::Engine
     isolate_namespace Shop
