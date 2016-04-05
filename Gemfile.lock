@@ -107,6 +107,14 @@ GEM
     rspec-mocks (3.4.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.4.0)
+    rspec-rails (3.4.2)
+      actionpack (>= 3.0, < 4.3)
+      activesupport (>= 3.0, < 4.3)
+      railties (>= 3.0, < 4.3)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
+      rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
     rubocop (0.38.0)
       parser (>= 2.3.0.6, < 3.0)
@@ -134,7 +142,8 @@ PLATFORMS
 
 DEPENDENCIES
   rspec (~> 3.0)
-  rubocop
+  rspec-rails (= 3.4.2)
+  rubocop (= 0.38.0)
   shop!
   sqlite3
 

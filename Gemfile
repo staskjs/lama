@@ -14,5 +14,6 @@ gemspec
 # gem 'byebug', group: [:development, :test]
 
 group :test, :development do
-  gem 'rubocop', require: false
+  gem 'rubocop', '0.38.0', require: false
+  gem 'rspec-rails', '3.4.2'
 end
