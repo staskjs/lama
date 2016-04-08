@@ -34,6 +34,9 @@ Metrics/BlockNesting:
 Metrics/LineLength:
   Max: 120
 
+Style/Documentation:
+  Enabled: false
+
 AllCops:
   DisplayCopNames: true
   Exclude:
