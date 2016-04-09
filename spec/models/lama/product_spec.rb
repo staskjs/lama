@@ -2,8 +2,8 @@ require 'rails_helper'
 
 #
 module Lama
-  RSpec.describe Product, type: :model do
-    it 'has no prices with same currency and price type under one product' do
+  describe Product, type: :model do
+    it 'has no prices with same currency and price type' do
       currency = create(:lama_currency)
       price_type = create(:lama_price_type)
 
@@ -13,8 +13,8 @@ module Lama
 
       product.prices << price1
       product.prices << price2
-      expect(product.save).to eq false
 
+      expect(product.save).to eq false
       expect(product.errors).to have(1).errors_on(:prices)
 
       product.prices = [price1]
@@ -24,8 +24,8 @@ module Lama
       expect(product.prices.first.price).to eq price1.price
 
       product.prices << price2
-      expect(product.save).to eq false
 
+      expect(product.save).to eq false
       expect(product.errors).to have(1).errors_on(:prices)
     end
   end
