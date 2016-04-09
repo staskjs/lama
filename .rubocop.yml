@@ -42,6 +42,8 @@ AllCops:
   Exclude:
     - db/**/*
     - bin/**
+    - spec/dummy/bin/**
+    - spec/dummy/db/**
 
 Rails:
   Enabled: true

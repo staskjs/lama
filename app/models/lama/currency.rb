@@ -1,5 +1,5 @@
 module Lama
   class Currency < ActiveRecord::Base
-    include Concern::Manageable
+    include Concerns::Manageable
   end
 end

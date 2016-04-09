@@ -16,4 +16,9 @@ gemspec
 group :test, :development do
   gem 'rubocop', '0.38.0', require: false
   gem 'rspec-rails', '3.4.2'
+  gem 'factory_girl_rails', '4.5.0'
+  gem 'database_cleaner', '1.4.1'
+  gem 'faker', '1.4.3'
+  gem 'awesome_print', '1.6.1'
+  gem 'rspec-collection_matchers', '1.1.2'
 end
