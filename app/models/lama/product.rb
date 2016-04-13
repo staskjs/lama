@@ -24,6 +24,7 @@ module Lama
 
     scope :active, -> { where(active: true) }
 
+    # Check uniqueness of prices unless same validation error already came from Price model
     validate :uniqueness_of_prices, if: -> { errors[:prices].empty? }
 
     # Check if prices connection contains duplicate prices by price_type and currency
