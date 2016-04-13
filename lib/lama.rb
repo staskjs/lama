@@ -6,4 +6,5 @@ require 'friendly_id'
 require 'lama/engine'
 
 module Lama
+  autoload :Cart, 'lama/cart'
 end
