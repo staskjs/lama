@@ -1,8 +1,7 @@
 module Lama
   #
-  class CartController < ActionController::Base
+  class CartController < ApplicationController
     def add
-      render json: :no_content
     end
   end
 end

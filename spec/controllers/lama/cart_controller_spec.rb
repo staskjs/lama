@@ -3,10 +3,11 @@ require 'rails_helper'
 module Lama
   describe CartController, type: :controller do
     routes { Lama::Engine.routes }
+    render_views
 
     it 'can add to cart' do
-      get 'add'
-      expect(response.body).to eq :no_content.to_json
+      get 'add', format: :json
+      expect(parsed_body).to be_empty
     end
   end
 end
