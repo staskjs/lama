@@ -13,3 +13,4 @@ spec/dummy/public/uploads
 *.swo
 .vim
 
+coverage
