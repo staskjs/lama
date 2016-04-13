@@ -18,7 +18,7 @@ module Lama
       expect(product.errors).to have(1).errors_on(:prices)
 
       product.prices = [price1]
-      product.save
+      expect(product.save).to eq true
 
       expect(product.prices.length).to eq(1)
       expect(product.prices.first.price).to eq price1.price

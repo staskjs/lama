@@ -1,12 +1,16 @@
 module Lama
   class Product < ActiveRecord::Base
     include Concerns::Manageable
+    extend FriendlyId
 
     # Picture shown when user previews a product
     mount_uploader :preview_picture, PictureUploader
 
     # Picture shown when user wants detailed information
     mount_uploader :detail_picture, PictureUploader
+
+    # Use name as a slug
+    friendly_id :name, use: :slugged
 
     # Main section
     belongs_to :section
