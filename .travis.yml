@@ -8,4 +8,4 @@ gemfile:
 before_install: 
   - gem install bundler -v 1.11.2
 
-script: "rspec"
+script: "bundle exec rspec"
