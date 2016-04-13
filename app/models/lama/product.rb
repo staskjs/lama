@@ -22,6 +22,8 @@ module Lama
     # Product can have multiple prices in different currencies
     has_many :prices
 
+    scope :active, -> { where(active: true) }
+
     validate :uniqueness_of_prices, if: -> { errors[:prices].empty? }
 
     # Check if prices connection contains duplicate prices by price_type and currency
