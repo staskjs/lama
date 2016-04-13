@@ -8,4 +8,6 @@ gemfile:
 before_install: 
   - gem install bundler -v 1.11.2
 
-script: "bundle exec rspec"
+script:
+  - bundle exec rake db:migrate RAILS_ENV=test
+  - bundle exec rspec
