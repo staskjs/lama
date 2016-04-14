@@ -4,5 +4,4 @@ FactoryGirl.define do
       shadow true
     end
   end
-
 end
