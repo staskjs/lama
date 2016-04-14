@@ -5,6 +5,8 @@ module Lama
     devise :database_authenticatable, :registerable,
            :recoverable, :rememberable, :trackable, :validatable
 
+    has_one :cart
+
     # Used to create user without email and password
     attr_accessor :shadow
 

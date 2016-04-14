@@ -22,6 +22,9 @@ module Lama
     # Product can have multiple prices in different currencies
     has_many :prices
 
+    # Product can be contained in multiple carts
+    has_many :carts
+
     scope :active, -> { where(active: true) }
 
     # Check uniqueness of prices unless same validation error already came from Price model
