@@ -8,5 +8,9 @@ module Lama
       g.integration_tool :rspec
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
     end
+
+    initializer 'lama.controller_helpers' do
+      Lama.include_helpers
+    end
   end
 end
