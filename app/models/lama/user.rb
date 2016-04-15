@@ -7,6 +7,9 @@ module Lama
 
     has_one :cart
 
+    # User can make multiple orders
+    has_many :orders
+
     # Used to create user without email and password
     attr_accessor :shadow
 
