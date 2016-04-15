@@ -22,7 +22,7 @@ module Lama
 
         it 'cannot sign in not shadowed user' do
           user = create(:lama_user)
-          expect { subject.shadow_sign_in user }.to raise_error I18n.t 'lama.errors.user_is_not_shadowed'
+          expect { subject.shadow_sign_in user }.to raise_error 'Cannot sign in not shadowed user'
         end
       end
     end
