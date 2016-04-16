@@ -17,7 +17,7 @@ module Lama
       # Sign in shadow user
       def shadow_sign_in(user)
         if !user.shadow || user.new_record?
-          raise I18n.t 'lama.errors.user_is_not_shadowed'
+          raise 'Cannot sign in not shadowed user'
         end
         session[:shadow_user_id] = user.id
       end
@@ -25,6 +25,21 @@ module Lama
       # Get current shadow user if exists
       def current_shadow_user
         @current_shadow_user ||= User.find(session[:shadow_user_id]) if session[:shadow_user_id]
+      end
+
+      #
+      def add_product_to_shadow_cart(user_product)
+        if !user_product || user_product.new_record? || user_product.order_id.present?
+          raise 'Cannot save non-existing cart'
+        end
+        session[:cart] ||= []
+        session[:cart] << user_product.id
+      end
+
+      # Get cart from session
+      def cart
+        session[:cart] ||= []
+        UserProduct.where(id: session[:cart]).all
       end
     end
   end

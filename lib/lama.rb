@@ -7,7 +7,7 @@ require 'jbuilder'
 require 'lama/engine'
 
 module Lama
-  autoload :Cart, 'lama/cart'
+  # autoload :Cart, 'lama/cart'
 
   module Controllers
     autoload :Helpers, 'lama/controllers/helpers'
