@@ -17,6 +17,7 @@ module Lama
       # Sign in shadow user
       def shadow_sign_in(user)
         if !user.shadow || user.new_record?
+          # TODO: translate
           raise 'Cannot sign in not shadowed user'
         end
         session[:shadow_user_id] = user.id
@@ -30,6 +31,7 @@ module Lama
       #
       def add_product_to_shadow_cart(user_product)
         if !user_product || user_product.new_record? || user_product.order_id.present?
+          # TODO: translate
           raise 'Cannot save non-existing cart'
         end
         session[:cart] ||= []
