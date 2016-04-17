@@ -5,5 +5,6 @@ module Lama
     belongs_to :user
     belongs_to :currency
     belongs_to :person_type
+    belongs_to :payment_system
   end
 end
