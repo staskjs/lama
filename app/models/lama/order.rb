@@ -6,5 +6,6 @@ module Lama
     belongs_to :currency
     belongs_to :person_type
     belongs_to :payment_system
+    belongs_to :delivery_system
   end
 end
