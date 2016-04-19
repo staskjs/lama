@@ -21,5 +21,6 @@ group :test, :development do
   gem 'faker', '1.4.3'
   gem 'awesome_print', '1.6.1'
   gem 'rspec-collection_matchers', '1.1.2'
-  gem 'codeclimate-test-reporter', require: nil
+  gem 'codeclimate-test-reporter', '0.5.0', require: nil
+  gem 'guard-rspec', '4.6.4', require: false
 end

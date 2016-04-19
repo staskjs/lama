@@ -1,6 +1,6 @@
 module Lama
   module Controllers
-    module Helpers
+    module ShadowUserHelper
       extend ActiveSupport::Concern
 
       included do
@@ -26,22 +26,6 @@ module Lama
       # Get current shadow user if exists
       def current_shadow_user
         @current_shadow_user ||= User.find(session[:shadow_user_id]) if session[:shadow_user_id]
-      end
-
-      #
-      def add_product_to_shadow_cart(user_product)
-        if !user_product || user_product.new_record? || user_product.order_id.present?
-          # TODO: translate
-          raise 'Cannot save non-existing cart'
-        end
-        session[:cart] ||= []
-        session[:cart] << user_product.id
-      end
-
-      # Get cart from session
-      def cart
-        session[:cart] ||= []
-        UserProduct.where(id: session[:cart]).all
       end
     end
   end
