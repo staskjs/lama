@@ -4,9 +4,7 @@ module Lama
       extend ActiveSupport::Concern
 
       included do
-        if respond_to?(:helper_method)
-          helper_method :cart
-        end
+        helper_method :cart if respond_to?(:helper_method)
       end
 
       # Add product to cart
@@ -54,7 +52,7 @@ module Lama
       def add_to_db_cart(product)
         user_product = UserProduct.where(user_id: current_user.id, product_id: product.id).first
         if user_product.nil?
-          user_product = UserProduct.create(user_id: current_user.id, product_id: product.id)
+          UserProduct.create(user_id: current_user.id, product_id: product.id)
         else
           user_product.increment!(:quantity)
         end
