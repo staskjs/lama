@@ -17,8 +17,7 @@ module Lama
       # Sign in shadow user
       def shadow_sign_in(user)
         if !user.shadow || user.new_record?
-          # TODO: translate
-          raise 'Cannot sign in not shadowed user'
+          raise I18n.t 'lama.shadow_user.cannot_sign_in'
         end
         session[:shadow_user_id] = user.id
       end

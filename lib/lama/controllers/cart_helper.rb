@@ -12,13 +12,37 @@ module Lama
       # Add product to cart
       def add_product_to_cart(product)
         if !product || product.new_record?
-          # TODO: translate
-          raise 'Cannot save non-existing product'
+          raise I18n.t 'lama.cart.add_not_existing_product'
         end
 
+        if user_signed_in?
+          add_to_db_cart(product)
+        else
+          add_to_session_cart(product)
+        end
+      end
+
+      # Get cart from session
+      def cart
+        if user_signed_in?
+          current_user.cart_user_products
+        else
+          session[:cart] ||= []
+          UserProduct.where(id: session[:cart]).all
+        end
+      end
+
+      private
+
+      # Cart of unauthorized user is stored in a session
+      def add_to_session_cart(product)
         if session[:cart]
           user_product = UserProduct.where(id: session[:cart], product_id: product.id).first
-          user_product.increment!(:quantity)
+          if user_product.nil?
+            user_product = UserProduct.create(product_id: product.id)
+          else
+            user_product.increment!(:quantity)
+          end
         else
           user_product = UserProduct.create(product_id: product.id)
           session[:cart] = []
@@ -26,10 +50,14 @@ module Lama
         session[:cart] << user_product.id
       end
 
-      # Get cart from session
-      def cart
-        session[:cart] ||= []
-        UserProduct.where(id: session[:cart]).all
+      # Cart of authorized user is stored in database
+      def add_to_db_cart(product)
+        user_product = UserProduct.where(user_id: current_user.id, product_id: product.id).first
+        if user_product.nil?
+          user_product = UserProduct.create(user_id: current_user.id, product_id: product.id)
+        else
+          user_product.increment!(:quantity)
+        end
       end
     end
   end
