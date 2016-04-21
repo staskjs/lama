@@ -16,6 +16,9 @@ module Lama
 
       # Sign in shadow user
       def shadow_sign_in(user)
+        if user_signed_in?
+          raise I18n.t 'lama.shadow_user.user_already_signed_in'
+        end
         if !user.shadow || user.new_record?
           raise I18n.t 'lama.shadow_user.cannot_sign_in'
         end

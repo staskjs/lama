@@ -108,6 +108,41 @@ module Lama
           allow(helper).to receive(:user_signed_in?).and_return(false)
           allow(helper).to receive(:current_user).and_return(nil)
         end
+
+        it 'adds product to cart' do
+          product = create(:lama_product)
+          helper.add_product_to_cart(product)
+          expect(helper.cart.length).to eq 1
+          expect(helper.cart.first.quantity).to eq 1
+          expect(helper.cart.first.product).to eq product
+          expect(helper.current_shadow_user.cart_user_products).to eq helper.cart
+        end
+
+        it 'adds same product to cart increasing quantity' do
+          product = create(:lama_product)
+          helper.add_product_to_cart(product)
+          expect(helper.cart.length).to eq 1
+          expect(helper.cart.first.quantity).to eq 1
+          expect(helper.cart.first.product).to eq product
+
+          helper.add_product_to_cart(product)
+          helper.current_shadow_user.cart_user_products.reload
+          expect(helper.cart.length).to eq 1
+          expect(helper.cart.first.product).to eq product
+          expect(helper.cart.first.quantity).to eq 2
+        end
+
+        it 'adds different products to cart' do
+          product1 = create(:lama_product)
+          product2 = create(:lama_product)
+          helper.add_product_to_cart(product1)
+          helper.add_product_to_cart(product2)
+          helper.current_shadow_user.cart_user_products.reload
+
+          expect(helper.cart.length).to eql 2
+          expect(helper.cart.first.quantity).to eq 1
+          expect(helper.cart.second.quantity).to eq 1
+        end
       end
     end
   end

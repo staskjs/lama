@@ -4,3 +4,4 @@ en:
       add_not_existing_product: 'Cannot save non-existing product'
     shadow_user:
       cannot_sign_in: 'Cannon sign in not shadowed user'
+      user_already_signed_in: 'User is signed in already'
