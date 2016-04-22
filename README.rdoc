@@ -1,5 +1,6 @@
-{<img src="https://codeclimate.com/github/dragothefiery/lama/badges/gpa.svg" />}[https://codeclimate.com/github/dragothefiery/lama]
-{<img src="https://codeclimate.com/github/dragothefiery/lama/badges/coverage.svg" />}[https://codeclimate.com/github/dragothefiery/lama/coverage]
+{<img src="https://codeclimate.com/github/staskjs/lama/badges/gpa.svg" />}[https://codeclimate.com/github/staskjs/lama]
+{<img src="https://codeclimate.com/github/staskjs/lama/badges/coverage.svg" />}[https://codeclimate.com/github/staskjs/lama/coverage]
+{<img src="https://codeclimate.com/github/staskjs/lama/badges/issue_count.svg" />}[https://codeclimate.com/github/staskjs/lama]
 {<img src="https://travis-ci.org/staskjs/lama.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/staskjs/lama]
 
 == README
