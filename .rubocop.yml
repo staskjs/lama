@@ -44,6 +44,7 @@ AllCops:
     - bin/**
     - spec/dummy/bin/**
     - spec/dummy/db/**
+    - Guardfile
 
 Rails:
   Enabled: true

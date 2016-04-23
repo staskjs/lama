@@ -6,6 +6,7 @@ require 'friendly_id'
 require 'jbuilder'
 require 'lama/engine'
 
+# rubocop:disable Style/ClassVars
 module Lama
   # autoload :Cart, 'lama/cart'
 
@@ -22,5 +23,20 @@ module Lama
 
     ActiveSupport.on_load :action_view do
     end
+  end
+
+  # Defines whether cart should be deleted from session
+  # and transfered to database after sign in,
+  # or just copied
+  mattr_accessor :clear_session_cart_after_sign_in
+  @@clear_session_cart_after_sign_in = true
+
+  # Can be used in initializer to change default settings
+  # example:
+  #     Lama.setup do |config|
+  #         config.key = value
+  #     end
+  def self.setup
+    yield self
   end
 end

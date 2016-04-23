@@ -37,7 +37,7 @@ module Lama
         cart.each do |user_product|
           user_product.update_attributes user_id: user.id
         end
-        session[:cart] = []
+        session[:cart] = [] if Lama.clear_session_cart_after_sign_in
       end
     end
   end
