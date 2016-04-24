@@ -22,22 +22,13 @@ module Lama
         if !user.shadow || user.new_record?
           raise I18n.t 'lama.shadow_user.cannot_sign_in'
         end
-        transfer_cart_to_user(user)
         session[:shadow_user_id] = user.id
+        transfer_cart_to_user(user)
       end
 
       # Get current shadow user if exists
       def current_shadow_user
         @current_shadow_user ||= User.find(session[:shadow_user_id]) if session[:shadow_user_id]
-      end
-
-      private
-
-      def transfer_cart_to_user(user)
-        cart.each do |user_product|
-          user_product.update_attributes user_id: user.id
-        end
-        session[:cart] = [] if Lama.clear_session_cart_after_sign_in
       end
     end
   end

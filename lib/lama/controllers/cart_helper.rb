@@ -22,16 +22,21 @@ module Lama
         end
       end
 
-      # Get cart from session
+      # Get cart based in authorization
       def cart
         if user_signed_in?
           current_user.cart_user_products
         elsif shadow_signed_in?
           current_shadow_user.cart_user_products
         else
+          session_cart
+        end
+      end
+
+      # Get cart from session
+      def session_cart
           session[:cart] ||= []
           UserProduct.where(id: session[:cart]).all
-        end
       end
 
       private
@@ -59,6 +64,13 @@ module Lama
         else
           user_product.increment!(:quantity)
         end
+      end
+
+      def transfer_cart_to_user(user)
+        session_cart.each do |user_product|
+          user_product.update_attributes user_id: user.id
+        end
+        session[:cart] = [] if Lama.clear_session_cart_after_sign_in
       end
     end
   end

@@ -166,9 +166,6 @@ module Lama
 
         describe 'add to cart and then sign in' do
           it 'as shadow' do
-            allow(subject).to receive(:user_signed_in?).and_return(false)
-            allow(subject).to receive(:current_user).and_return(nil)
-
             product1 = create(:lama_product)
             product2 = create(:lama_product)
             subject.add_product_to_cart(product1)
@@ -180,7 +177,22 @@ module Lama
             expect(subject.cart.length).to eql 2
             expect(subject.cart.first.quantity).to eq 1
             expect(subject.cart.second.quantity).to eq 1
-            expect(subject.session[:cart]).to be_empty
+            expect(subject.session_cart).to be_empty
+          end
+
+          it 'as regular user' do
+            product1 = create(:lama_product)
+            product2 = create(:lama_product)
+            subject.add_product_to_cart(product1)
+            subject.add_product_to_cart(product2)
+
+            user = build(:lama_user)
+            subject.sign_in(user)
+
+            expect(subject.cart.length).to eql 2
+            expect(subject.cart.first.quantity).to eq 1
+            expect(subject.cart.second.quantity).to eq 1
+            expect(subject.session_cart).to be_empty
           end
         end
       end
