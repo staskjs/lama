@@ -15,7 +15,7 @@ module Lama
     autoload :CartHelper, 'lama/controllers/cart_helper'
     autoload :UserHelper, 'lama/controllers/user_helper'
   end
-  
+
   module Uploaders
     autoload :PictureUploader, 'lama/uploaders/picture_uploader'
   end

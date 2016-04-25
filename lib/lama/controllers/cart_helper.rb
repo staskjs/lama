@@ -35,8 +35,8 @@ module Lama
 
       # Get cart from session
       def session_cart
-          session[:cart] ||= []
-          UserProduct.where(id: session[:cart]).all
+        session[:cart] ||= []
+        UserProduct.where(id: session[:cart]).all
       end
 
       private
