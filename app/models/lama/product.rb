@@ -4,10 +4,10 @@ module Lama
     extend FriendlyId
 
     # Picture shown when user previews a product
-    mount_uploader :preview_picture, PictureUploader
+    mount_uploader :preview_picture, Lama.picture_uploader
 
     # Picture shown when user wants detailed information
-    mount_uploader :detail_picture, PictureUploader
+    mount_uploader :detail_picture, Lama.picture_uploader
 
     # Use name as a slug
     friendly_id :name, use: :slugged
