@@ -10,3 +10,14 @@ Internet shop-core gem 'Lama'
 = Technology stack
 * Ruby        2.3.0
 * Devise      3.5.6
+
+= Installation
+Lama is distributes as a gem. Include it in your Gemfile.
+  gem 'lama'
+
+Or if you want, use the latest version.
+  gem 'lama', github: 'staskjs/lama', branch: 'master'
+
+Then copy and install migrations.
+  rake lama:install:migrations
+  rake db:migrate
