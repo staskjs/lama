@@ -58,6 +58,7 @@ guard :rspec, cmd: 'bundle exec rspec' do
   watch(rails.routes)          { "#{rspec.spec_dir}/routing" }
   watch(rails.app_controller)  { "#{rspec.spec_dir}/controllers" }
   watch(%r{^lib/lama/controllers/(.+)\.rb$}) { |_m| "#{rspec.spec_dir}/controllers/lama/application_controller_spec.rb" }
+  watch(%r{^lib/lama/cart.rb}) { |_m| "#{rspec.spec_dir}/controllers/lama/application_controller_spec.rb" }
 
   # Capybara features specs
   watch(rails.view_dirs)     { |m| rspec.spec.call("features/#{m[1]}") }

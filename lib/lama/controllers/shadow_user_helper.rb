@@ -23,7 +23,7 @@ module Lama
           raise I18n.t 'lama.shadow_user.cannot_sign_in'
         end
         session[:shadow_user_id] = user.id
-        transfer_cart_to_user(user)
+        cart.transfer_to_user(user)
       end
 
       # Get current shadow user if exists

@@ -8,7 +8,7 @@ require 'lama/engine'
 
 # rubocop:disable Style/ClassVars
 module Lama
-  # autoload :Cart, 'lama/cart'
+  autoload :Cart, 'lama/cart'
 
   module Controllers
     autoload :ShadowUserHelper, 'lama/controllers/shadow_user_helper'
@@ -33,7 +33,7 @@ module Lama
 
   # Defines whether cart should be deleted from session
   # and transfered to database after sign in,
-  # or just copied
+  # or just transfered
   mattr_accessor :clear_session_cart_after_sign_in
   @@clear_session_cart_after_sign_in = true
 
