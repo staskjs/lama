@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'carrierwave', '~> 0.11.0'
   s.add_dependency 'friendly_id', '~> 5.1.0'
   s.add_dependency 'jbuilder', '~> 2.4.1'
+  s.add_dependency 'kaminari', '~> 0.16.3'
 
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'rspec', '~> 3.0'
