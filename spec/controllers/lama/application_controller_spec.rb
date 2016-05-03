@@ -127,22 +127,22 @@ module Lama
             expect(subject.cart.first.quantity).to eq 1
             expect(subject.cart.first.product).to eq product
 
-            subject.cart.add(product)
+            subject.cart.add(product, 2)
             subject.current_user.cart_user_products.reload
             expect(subject.cart.length).to eq 1
             expect(subject.cart.first.product).to eq product
-            expect(subject.cart.first.quantity).to eq 2
+            expect(subject.cart.first.quantity).to eq 3
           end
 
           it 'adds different products to cart' do
             product1 = create(:lama_product)
             product2 = create(:lama_product)
-            subject.cart.add(product1)
+            subject.cart.add(product1, 2)
             subject.cart.add(product2)
             subject.current_user.cart_user_products.reload
 
             expect(subject.cart.length).to eql 2
-            expect(subject.cart.first.quantity).to eq 1
+            expect(subject.cart.first.quantity).to eq 2
             expect(subject.cart.second.quantity).to eq 1
           end
         end

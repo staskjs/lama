@@ -23,17 +23,17 @@ module Lama
     end
 
     # Add product to cart
-    def add(product)
+    def add(product, quantity = 1)
       if !product || product.new_record?
         raise I18n.t 'lama.cart.add_not_existing_product'
       end
 
       if controller.user_signed_in?
-        add_to_db(product, controller.current_user)
+        add_to_db(product, controller.current_user, quantity)
       elsif controller.shadow_signed_in?
-        add_to_db(product, controller.current_shadow_user)
+        add_to_db(product, controller.current_shadow_user, quantity)
       else
-        add_to_session(product)
+        add_to_session(product, quantity)
       end
     end
 
@@ -73,13 +73,13 @@ module Lama
     attr_accessor :controller
 
     # Cart of unauthorized user is stored in a session and database
-    def add_to_session(product)
+    def add_to_session(product, quantity)
       if controller.session[:cart]
         user_product = UserProduct.where(id: controller.session[:cart], product_id: product.id).first
         if user_product.nil?
-          user_product = UserProduct.create(product_id: product.id)
+          user_product = UserProduct.create(product_id: product.id, quantity: quantity)
         else
-          user_product.increment!(:quantity)
+          user_product.increment!(:quantity, quantity)
         end
       else
         user_product = UserProduct.create(product_id: product.id)
@@ -89,12 +89,12 @@ module Lama
     end
 
     # Cart of authorized user is stored only in database
-    def add_to_db(product, user)
+    def add_to_db(product, user, quantity)
       user_product = UserProduct.where(user_id: user.id, product_id: product.id).first
       if user_product.nil?
-        UserProduct.create(user_id: user.id, product_id: product.id)
+        UserProduct.create(user_id: user.id, product_id: product.id, quantity: quantity)
       else
-        user_product.increment!(:quantity)
+        user_product.increment!(:quantity, quantity)
       end
     end
   end
