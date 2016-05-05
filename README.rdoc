@@ -4,6 +4,9 @@
 {<img src="https://travis-ci.org/staskjs/lama.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/staskjs/lama]
 
 == README
+
+*NOTE*: Gem is under development and not yet published to rubygems.
+
 = About
 Internet shop-core gem 'Lama'
 
