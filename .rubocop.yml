@@ -37,6 +37,20 @@ Metrics/LineLength:
 Style/Documentation:
   Enabled: false
 
+# Trailing comma helps not to forget to put it
+# if you want to add new value below
+Style/TrailingCommaInLiteral:
+  Enabled: false
+
+# It is totally ok to use block chain by my preference
+# It promotes functional programming style
+Style/MultilineBlockChain:
+  Enabled: false
+
+# extend self uses ruby inheritance instead of copying methods
+Style/ModuleFunction:
+  Enabled: false
+
 AllCops:
   DisplayCopNames: true
   Exclude:
